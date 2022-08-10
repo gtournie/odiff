@@ -12,21 +12,21 @@ if (!exists) {
 const mainPackageJson = require(path.join("..", "package.json"));
 const bins = Array.isArray(mainPackageJson.esy.release.bin)
   ? mainPackageJson.esy.release.bin.reduce(
-      (acc, curr) => Object.assign({ [curr]: "bin/" + curr }, acc),
-      {}
-    )
+    (acc, curr) => Object.assign({ [curr]: "bin/" + curr }, acc),
+    {}
+  )
   : Object.keys(mainPackageJson.esy.release.bin).reduce(
-      (acc, currKey) =>
-        Object.assign(
-          { [currKey]: "bin/" + mainPackageJson.esy.release.bin[currKey] },
-          acc
-        ),
-      {}
-    );
+    (acc, currKey) =>
+      Object.assign(
+        { [currKey]: "bin/" + mainPackageJson.esy.release.bin[currKey] },
+        acc
+      ),
+    {}
+  );
 
 const packageJson = JSON.stringify(
   {
-    name: "odiff-bin",
+    name: "odiff-bin-no-output",
     version: mainPackageJson.version,
     license: mainPackageJson.license,
     description: mainPackageJson.description,

@@ -67,7 +67,7 @@ let main =
           diff: Some(diffOutput),
         }
       | Pixel((diffOutput, diffCount, diffPercentage)) => {
-          IO1.saveImage(diffOutput, diffPath);
+          // IO1.saveImage(diffOutput, diffPath);
           {exitCode: 22, diff: Some(diffOutput)};
         }
     );
